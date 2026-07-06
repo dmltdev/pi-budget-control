@@ -2,11 +2,15 @@
 
 ## Budget control
 
-A session guard that reads provider usage and blocks costly turns when the configured usage window reaches its cap.
+A session guard for Pi and Oh My Pi that reads provider usage and blocks costly turns when the configured usage window reaches its cap.
 
 ## Cap
 
 The percentage of a provider usage window at which budget control blocks new spend. Global defaults come from environment variables. A session cap applies only to the current session.
+
+## Harness
+
+The CLI/runtime that hosts the extension. Oh My Pi uses `omp`. Pi uses `pi`. `PI_BUDGET_OMP_BIN` selects which binary budget control calls for usage.
 
 ## Bypass
 

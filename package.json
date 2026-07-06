@@ -1,7 +1,7 @@
 {
   "name": "pi-budget-control",
   "version": "0.1.0",
-  "description": "OMP extension that blocks high-cost turns when the 5-hour provider usage window crosses a configured cap.",
+  "description": "Pi / Oh My Pi extension that blocks high-cost turns when the 5-hour provider usage window crosses a configured cap.",
   "type": "module",
   "license": "MIT",
   "main": "./src/main.ts",

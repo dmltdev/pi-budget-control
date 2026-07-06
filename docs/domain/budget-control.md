@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Budget control keeps an OMP session from spending past a user-owned short-window usage cap.
+Budget control keeps a Pi or Oh My Pi session from spending past a user-owned short-window usage cap.
 
 ## Language
 
@@ -28,10 +28,10 @@ Budget control keeps an OMP session from spending past a user-owned short-window
 
 ## Contracts
 
-- Usage source: `omp usage --json --provider <provider>`.
+- Usage source: `<harness> usage --json --provider <provider>`, where `<harness>` defaults to `omp` and can be set to `pi` with `PI_BUDGET_OMP_BIN=pi`.
 - Default provider: `openai-codex`.
 - Default window: `5h`.
 - Global default cap: 20% used.
 - Global default warning: 18% used.
 - Session cap override: stored in session state; reset returns to the global default.
-- Session state store: OMP custom entries with `customType = "pi-budget-control"`.
+- Session state store: harness custom entries with `customType = "pi-budget-control"`.
