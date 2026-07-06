@@ -1,0 +1,32 @@
+{
+  "name": "pi-budget-control",
+  "version": "0.1.0",
+  "description": "OMP extension that blocks high-cost turns when the 5-hour provider usage window crosses a configured cap.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/main.ts",
+  "types": "./src/main.ts",
+  "files": [
+    "src",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "omp": {
+    "extensions": [
+      "./src/main.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@oh-my-pi/pi-coding-agent": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@oh-my-pi/pi-coding-agent": "^16.3.10",
+    "@types/node": "^24.10.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

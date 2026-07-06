@@ -1,0 +1,15 @@
+{
+  "name": "pi-budget-control-dev",
+  "owner": {
+    "name": "Dmytro"
+  },
+  "plugins": [
+    {
+      "name": "pi-budget-control",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tags": ["budget", "usage", "guardrail"],
+      "source": "./"
+    }
+  ]
+}
