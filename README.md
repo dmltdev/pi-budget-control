@@ -68,4 +68,15 @@ omp plugin marketplace add ./.
 omp plugin install pi-budget-control@pi-budget-control-dev --force
 ```
 
-Pi uses the same extension package layout; install with the equivalent Pi plugin command, or load locally with `pi --extension .`.
+Pi:
+
+```sh
+pi plugin marketplace add ./.
+pi plugin install pi-budget-control@pi-budget-control-dev --force
+```
+
+Local one-shot load:
+
+```sh
+PI_BUDGET_OMP_BIN=pi pi --extension .
+```
