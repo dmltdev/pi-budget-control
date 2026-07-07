@@ -49,6 +49,12 @@ Environment variables:
 | `PI_BUDGET_FAIL_OPEN` | unset | Set `1` to allow prompts if usage cannot be read |
 | `PI_BUDGET_DEFAULT_OFF` | unset | Set `1` to start disabled |
 
+## Requirements
+
+- Oh My Pi `omp >= 16.3.11` for marketplace install autoload.
+- Older `omp` versions may list the marketplace plugin but not load `/budget`.
+- Use `omp update`, then reinstall the marketplace plugin with `--force`.
+
 ## Local development
 
 ```sh
@@ -75,8 +81,16 @@ pi plugin marketplace add ./.
 pi plugin install pi-budget-control@pi-budget-control-dev --force
 ```
 
-Local one-shot load:
+One-shot load:
 
 ```sh
+omp --extension .
 PI_BUDGET_OMP_BIN=pi pi --extension .
+```
+
+If `/budget` is missing after marketplace install:
+
+```sh
+omp update
+omp plugin install pi-budget-control@pi-budget-control-dev --force
 ```
