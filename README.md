@@ -42,8 +42,8 @@ Environment variables:
 |---|---:|---|
 | `PI_BUDGET_PROVIDER` | `openai-codex` | Provider passed to `<harness> usage --provider` |
 | `PI_BUDGET_WINDOW` | `5h` | Enforced usage window |
-| `PI_BUDGET_CAP_PERCENT` | `20` | Global default block threshold |
-| `PI_BUDGET_WARN_PERCENT` | `18` | Global default warning threshold when no session cap is active |
+| `PI_BUDGET_CAP_PERCENT` | `95` | Global default block threshold |
+| `PI_BUDGET_WARN_PERCENT` | `75` | Global default warning threshold when no session cap is active |
 | `PI_BUDGET_CACHE_MS` | `30000` | Usage snapshot cache TTL |
 | `PI_BUDGET_OMP_BIN` | `omp` | Harness CLI used to read usage. Set to `pi` for Pi. |
 | `PI_BUDGET_FAIL_OPEN` | unset | Set `1` to allow prompts if usage cannot be read |

@@ -31,7 +31,7 @@ Budget control keeps a Pi or Oh My Pi session from spending past a user-owned sh
 - Usage source: `<harness> usage --json --provider <provider>`, where `<harness>` defaults to `omp` and can be set to `pi` with `PI_BUDGET_OMP_BIN=pi`.
 - Default provider: `openai-codex`.
 - Default window: `5h`.
-- Global default cap: 20% used.
-- Global default warning: 18% used.
+- Global default cap: 95% used.
+- Global default warning: 75% used.
 - Session cap override: stored in session state; reset returns to the global default.
 - Session state store: harness custom entries with `customType = "pi-budget-control"`.

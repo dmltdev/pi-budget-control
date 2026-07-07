@@ -5,8 +5,8 @@ import { assessUsage, selectMostUsedLimit, type OmpUsageReport } from "../src/us
 const config: BudgetConfig = {
   provider: "openai-codex",
   windowId: "5h",
-  capPercent: 20,
-  warnPercent: 18,
+  capPercent: 95,
+  warnPercent: 75,
   cacheMs: 30_000,
   ompBin: "omp",
   failClosed: true,
@@ -21,7 +21,7 @@ describe("5-hour provider budget assessment", () => {
   });
 
   it("when the 5-hour limit reaches the cap, then it blocks", () => {
-    const report = usageReport({ fiveHourUsed: 0.2, sevenDayUsed: 0.1 });
+    const report = usageReport({ fiveHourUsed: 0.95, sevenDayUsed: 0.1 });
 
     const assessment = assessUsage(report, config);
 
@@ -30,7 +30,7 @@ describe("5-hour provider budget assessment", () => {
   });
 
   it("when the 5-hour limit is near the cap, then it warns", () => {
-    const report = usageReport({ fiveHourUsed: 0.185, sevenDayUsed: 0.1 });
+    const report = usageReport({ fiveHourUsed: 0.75, sevenDayUsed: 0.1 });
 
     expect(assessUsage(report, config).kind).toBe("warn");
   });
@@ -40,7 +40,7 @@ describe("5-hour provider budget assessment", () => {
       reports: [
         {
           provider: "openai-codex",
-          limits: [limit("openai-codex:spark:primary", "5h", 0.1), limit("openai-codex:primary", "5h", 0.21)],
+          limits: [limit("openai-codex:spark:primary", "5h", 0.1), limit("openai-codex:primary", "5h", 0.96)],
         },
       ],
     };

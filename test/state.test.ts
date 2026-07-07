@@ -1,12 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
-import type { BudgetConfig } from "../src/config.js";
+import { readConfig, type BudgetConfig } from "../src/config.js";
 import { CUSTOM_TYPE, consumeOneTurnBypass, effectiveConfig, hasActiveBypass, parseCapPercent, parseDurationMs, restoreState } from "../src/state.js";
 
 const config: BudgetConfig = {
   provider: "openai-codex",
   windowId: "5h",
-  capPercent: 20,
-  warnPercent: 18,
+  capPercent: 95,
+  warnPercent: 75,
   cacheMs: 30_000,
   ompBin: "omp",
   failClosed: true,
@@ -66,8 +66,8 @@ describe("budget bypass state", () => {
       config,
     );
 
-    expect(effectiveConfig(config, state).capPercent).toBe(20);
-    expect(effectiveConfig(config, state).warnPercent).toBe(18);
+    expect(effectiveConfig(config, state).capPercent).toBe(95);
+    expect(effectiveConfig(config, state).warnPercent).toBe(75);
   });
 
   it("when parsing session cap commands, then only 1 through 100 are valid", () => {
@@ -82,5 +82,12 @@ describe("budget bypass state", () => {
     expect(parseDurationMs("30m")).toBe(1_800_000);
     expect(parseDurationMs("2h")).toBe(7_200_000);
     expect(parseDurationMs("30d")).toBeUndefined();
+  });
+});
+
+describe("budget config", () => {
+  it("when no env overrides exist, then 5-hour defaults allow normal session bursts", () => {
+    expect(readConfig({}).capPercent).toBe(95);
+    expect(readConfig({}).warnPercent).toBe(75);
   });
 });

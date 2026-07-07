@@ -9,8 +9,8 @@ export interface BudgetConfig {
   readonly defaultEnabled: boolean;
 }
 
-const DEFAULT_CAP_PERCENT = 20;
-const DEFAULT_WARN_PERCENT = 18;
+const DEFAULT_CAP_PERCENT = 95;
+const DEFAULT_WARN_PERCENT = 75;
 const DEFAULT_CACHE_MS = 30_000;
 
 export function readConfig(env: NodeJS.ProcessEnv = process.env): BudgetConfig {

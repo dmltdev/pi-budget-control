@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Accepted; default cap superseded by [0002](./0002-raise-default-five-hour-budget-cap.md).
 
 ## Context
 
