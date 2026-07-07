@@ -55,37 +55,33 @@ Environment variables:
 - Older `omp` versions may list the marketplace plugin but not load `/budget`.
 - Use `omp update`, then reinstall the marketplace plugin with `--force`.
 
-## Local development
+## Local development autoload
+
+The repo includes project-local extension shims:
+
+- `.omp/extensions/pi-budget-control.ts` for Oh My Pi.
+- `.pi/extensions/pi-budget-control.ts` for Pi.
+
+Opening `omp` or `pi` in this repo auto-loads `/budget` after the project is trusted. Use one-shot flags only when testing from another directory:
 
 ```sh
-pnpm install
-pnpm test
-pnpm typecheck
 omp --extension .
 PI_BUDGET_OMP_BIN=pi pi --extension .
 ```
 
-## Marketplace development install
+## Package development install
 
-Oh My Pi:
+Oh My Pi marketplace install:
 
 ```sh
 omp plugin marketplace add ./.
 omp plugin install pi-budget-control@pi-budget-control-dev --force
 ```
 
-Pi:
+Pi local package install:
 
 ```sh
-pi plugin marketplace add ./.
-pi plugin install pi-budget-control@pi-budget-control-dev --force
-```
-
-One-shot load:
-
-```sh
-omp --extension .
-PI_BUDGET_OMP_BIN=pi pi --extension .
+PI_BUDGET_OMP_BIN=pi pi install ./.
 ```
 
 If `/budget` is missing after marketplace install:

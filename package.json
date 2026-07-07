@@ -4,6 +4,13 @@
   "description": "Pi / Oh My Pi extension that blocks high-cost turns when the 5-hour provider usage window crosses a configured cap.",
   "type": "module",
   "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "omp",
+    "budget",
+    "usage"
+  ],
   "main": "./src/main.ts",
   "types": "./src/main.ts",
   "files": [
@@ -14,6 +21,11 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
+  },
+  "pi": {
+    "extensions": [
+      "./src/main.ts"
+    ]
   },
   "omp": {
     "extensions": [
