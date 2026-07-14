@@ -2,6 +2,9 @@
 
 Pi / Oh My Pi extension that keeps a session inside a 5-hour provider usage budget.
 
+> [!WARNING]
+> Spoiler alert: this extension is retired and no longer maintained.
+
 The extension supports both harness binaries:
 
 - `omp` (Oh My Pi) by default.
